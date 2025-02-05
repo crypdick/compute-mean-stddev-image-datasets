@@ -1,0 +1,6 @@
+gdown
+h5py
+ray[data]
+tqdm
+torch
+torchvision

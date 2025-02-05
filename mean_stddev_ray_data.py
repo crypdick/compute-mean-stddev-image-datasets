@@ -167,4 +167,8 @@ if __name__ == "__main__":
     print("| Dataset | Mean (unnormalized) | StdDev (unnormalized) | Mean (normalized) | StdDev (normalized) |")
     print("|---------|---------------------|----------------------|------------------|---------------------|")
     for dataset, results in final_results.items():
-        print(f"| {dataset} | {tuple(results['means'])} | {tuple(results['stddevs'])} | {tuple(results['means_normalized'])} | {tuple(results['stddevs_normalized'])} |")
+        means = str([round(x, 2) for x in results['means']]).replace('[', '(').replace(']', ')')
+        stddevs = str([round(x, 2) for x in results['stddevs']]).replace('[', '(').replace(']', ')')
+        means_norm = str([round(x, 5) for x in results['means_normalized']]).replace('[', '(').replace(']', ')')
+        stddevs_norm = str([round(x, 5) for x in results['stddevs_normalized']]).replace('[', '(').replace(']', ')')
+        print(f"| {dataset} | `{means}` | `{stddevs}` | `{means_norm}` | `{stddevs_norm}` |")
